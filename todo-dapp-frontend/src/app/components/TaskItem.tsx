@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Web3 from 'web3';
 import { Contract, ContractAbi } from 'web3';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { TASK_CONTRACT_ABI, TASK_CONTRACT_ADDRESS } from '../../../constants/TaskContract';
 
@@ -90,12 +90,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onTaskUpdated }) => {
                     {isDeleting ? 'Deleting...' : 'Delete'}
                 </button>
             </div>
-            <ToastContainer 
+            {/* <ToastContainer 
                 position="top-right"
                 autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop
-            />
+            /> */}
         </div>
     );
 };

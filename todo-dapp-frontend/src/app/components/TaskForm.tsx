@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Web3 from 'web3';
 import { Contract, ContractAbi } from 'web3';
 import { TASK_CONTRACT_ABI, TASK_CONTRACT_ADDRESS } from '../../../constants/TaskContract';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TaskList from './TaskList';
 
@@ -74,7 +74,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
     return (
         <div className='p-4 bg-white shadow rounded-lg'>
             <h2 className="text-xl font-bold mb-4 text-black">Add New Task</h2>
-            <ToastContainer position="top-right" />
+            {/* <ToastContainer position="top-right" /> */}
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <input

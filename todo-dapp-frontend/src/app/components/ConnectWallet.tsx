@@ -1,8 +1,9 @@
 'use client'
+
 import { useState } from 'react';
 import Web3 from 'web3';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Add this import
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Add ethereum window type
 declare global {
@@ -46,9 +47,14 @@ const ConnectWallet = () => {
         }
     };
 
+    const disconnectWallet = () => {
+        setAccount(null);
+        toast.info("Wallet disconnected successfully!");
+    };
+
     return (
         <div className='text-center p-5 text-right'>
-            <ToastContainer position="top-right" />
+            {/* <ToastContainer position="top-right" /> */}
             {!account ? (
                 <button 
                     onClick={connectWallet}
@@ -57,9 +63,17 @@ const ConnectWallet = () => {
                     Connect Wallet
                 </button>   
             ) : (
-                <p className="text-gray-700 text-white">
-                    Connected Wallet: {account.slice(0, 6)}...{account.slice(-4)}
-                </p>
+                <div className="flex items-center justify-end gap-4">
+                    <p className="text-gray-700 text-white">
+                        Connected: {account.slice(0, 6)}...{account.slice(-4)}
+                    </p>
+                    <button 
+                        onClick={disconnectWallet}
+                        className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                    >
+                        Disconnect
+                    </button>
+                </div>
             )}
         </div>
     );
