@@ -54,10 +54,10 @@ function addTask(string memory description, bool isDeleted)external {
      }
 
      //update
-     function updateTask(uint taskId, string memory newDescription) external {
-    require(taskOwner[taskId] == msg.sender, "You are not the task owner");
-    tasks[taskId].description = newDescription;
-}
+//      function updateTask(uint taskId, string memory newDescription) external {
+//     require(taskOwner[taskId] == msg.sender, "You are not the task owner");
+//     tasks[taskId].description = newDescription;
+// }
 
 
       /**
