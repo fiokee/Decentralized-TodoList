@@ -60,8 +60,8 @@ const TaskList = () => {
 
     return (
         <div className='p-4'>
-            <h2 className="text-xl font-bold mb-4">My Tasks</h2>
-            <div className="space-y-2">
+            <h2 className="text-xl font-bold mb-4 text-black">My Tasks</h2>
+            <div className="space-y-2 text-black">
                 {tasks.length ? (
                     tasks.map((task, idx) => (
                         <TaskItem 
@@ -71,7 +71,7 @@ const TaskList = () => {
                         />
                     ))
                 ) : (
-                    <p>No Tasks found!</p>
+                    <p className='text-gray-400'>No Tasks found!</p>
                 )}
             </div>
         </div>

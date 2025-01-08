@@ -18,12 +18,11 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
     const addTask = async () => {
         if (!description.trim()) {
             toast.error('Task Description is required!');
-            return; // Add return statement to prevent further execution
+            return;
         }
         
         const MAX_DESCRIPTION_LENGTH = 100;
     
-        //Adding task description length validation:
         if (description.trim().length > MAX_DESCRIPTION_LENGTH) {
             toast.error(`Task description must be less than ${MAX_DESCRIPTION_LENGTH} characters`);
             return;
@@ -74,7 +73,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
 
     return (
         <div className='p-4 bg-white shadow rounded-lg'>
-            <h2 className="text-xl font-bold mb-4">Add New Task</h2>
+            <h2 className="text-xl font-bold mb-4 text-black">Add New Task</h2>
             <ToastContainer position="top-right" />
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -83,17 +82,17 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder='Enter Task description'
-                        className='w-full p-2 border rounded mb-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                        className='w-full p-2 border rounded mb-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-black font-bold'
                         disabled={isSubmitting}
                     />
                 </div>
                 <button 
                     type="submit"
                     disabled={isSubmitting || !description.trim()}
-                    className={`w-full bg-blue-500 text-white px-4 py-2 rounded 
+                    className={`w-full bg-orange-500 text-white px-4 py-2 rounded 
                         ${isSubmitting || !description.trim() 
                             ? 'opacity-50 cursor-not-allowed' 
-                            : 'hover:bg-blue-600'}`}
+                            : 'hover:bg-orange-600'}`}
                 >
                     {isSubmitting ? 'Adding Task...' : 'Add Task'}
                 </button>
